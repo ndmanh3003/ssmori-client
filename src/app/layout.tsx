@@ -21,8 +21,8 @@ export default function RootLayout({
       <body>
         <AntdRegistry>
           <ConfigProvider {...antdConfig}>
-            <div className='h-[100vh] w-[100vw] bg-mr-th flex justify-center'>
-              <div className='max-w-[1440px] w-full h-fulloverflow-hidden'>{children}</div>
+            <div className='bg-mr-th min-h-[100vh] w-full flex justify-center'>
+              <div className='max-w-[1440px] w-full h-full overflow-hidden px-10'>{children}</div>
             </div>
           </ConfigProvider>
         </AntdRegistry>
