@@ -4,11 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
-*:not([class*='ant']) {
+*:not([class*='ant']) anticon {
   transition: all 0.3s ease-in-out;
 }
 
-/* !INPUT AUTOCOMPLETE */
+body {
+  font-size: 18px;
+}
+
+/* * INPUT AUTOCOMPLETE */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
