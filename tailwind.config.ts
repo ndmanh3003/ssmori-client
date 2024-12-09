@@ -7,10 +7,17 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
+    fontFamily: {
+      sans: ['Manrope', 'system-ui'],
+      header: ['Marcellus', 'sans-serif'],
+      impact: ['Italianno', 'sans-serif']
+    },
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)'
+        'mr-st': '#DF4601',
+        'mr-nd': '#C95017',
+        'mr-rd': '#DB7A3F',
+        'mr-th': '#FFF7EB'
       }
     }
   },

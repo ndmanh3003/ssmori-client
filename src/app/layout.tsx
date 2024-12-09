@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 
 import { AntdRegistry } from '@ant-design/nextjs-registry'
+import { ConfigProvider } from 'antd'
+
 import './globals.css'
+import antdConfig from '@/config/antd'
 
 export const metadata: Metadata = {
   title: 'Sushi Mori 🍣',
@@ -18,7 +21,9 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <body>
-          <AntdRegistry>{children}</AntdRegistry>
+          <AntdRegistry>
+            <ConfigProvider {...antdConfig}>{children}</ConfigProvider>
+          </AntdRegistry>
         </body>
       </body>
     </html>
