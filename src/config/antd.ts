@@ -5,7 +5,13 @@ const antdConfig: ConfigProviderProps = {
   theme: {
     token: {
       colorPrimary: '#DF4601',
-      fontFamily: 'Manrope'
+      fontFamily: 'Manrope',
+      borderRadius: 12
+    },
+    components: {
+      Form: {
+        labelFontSize: 20
+      }
     }
   }
 }

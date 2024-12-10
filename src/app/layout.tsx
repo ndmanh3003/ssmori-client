@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 
 import { AntdRegistry } from '@ant-design/nextjs-registry'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, App } from 'antd'
 
 import './globals.css'
+import 'antd/dist/reset.css'
 import antdConfig from '@/config/antd'
 
 export const metadata: Metadata = {
@@ -21,9 +22,11 @@ export default function RootLayout({
       <body>
         <AntdRegistry>
           <ConfigProvider {...antdConfig}>
-            <div className='bg-mr-th min-h-[100vh] w-full flex justify-center'>
-              <div className='max-w-[1440px] w-full h-full overflow-hidden px-10'>{children}</div>
-            </div>
+            <App>
+              <div className='bg-mr-th min-h-[100vh] w-full flex justify-center'>
+                <div className='max-w-[1440px] w-full h-full overflow-hidden px-10'>{children}</div>
+              </div>
+            </App>
           </ConfigProvider>
         </AntdRegistry>
       </body>

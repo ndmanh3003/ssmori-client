@@ -16,6 +16,26 @@ nextjs-portal {
   display: none;
 }
 
+/* * SCROLLBAR */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff7eb;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #db7a3f;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c95017;
+}
+
 /* * INPUT AUTOCOMPLETE */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -27,4 +47,59 @@ input:-webkit-autofill:active {
   transition-delay:
     background-color 5000s,
     color 5000s;
+}
+
+/* * INPUT NUMBER */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* * ANTD: Select dropdown */
+.ant-select-selector {
+  padding: 4px 12px !important;
+  border-radius: 12px !important;
+  height: fit-content !important;
+  background-color: transparent !important;
+}
+
+.ant-select-single {
+  height: auto !important;
+}
+
+.ant-select-selection-search {
+  padding: 6px 8px !important;
+}
+
+.ant-select-selection-search-input {
+  font-size: 18px !important;
+}
+
+.ant-select-selection-placeholder {
+  font-size: 18px !important;
+}
+
+.ant-select-selection-item {
+  font-size: 18px !important;
+}
+
+.ant-select-item-option {
+  font-size: 16px !important;
+}
+
+/* * ANTD MESSAGE */
+.ant-message-custom-content {
+  font-size: 16px !important;
+}
+
+.ant-message-notice-content {
+  border-radius: 12px !important;
 }

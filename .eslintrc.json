@@ -8,20 +8,8 @@
     "es2021": true,
     "node": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "eslint:recommended"
-  ],
-  "plugins": [
-    "react",
-    "unused-imports",
-    "import",
-    "@typescript-eslint",
-    "jsx-a11y",
-    "prettier"
-  ],
+  "extends": ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:jsx-a11y/recommended", "eslint:recommended"],
+  "plugins": ["react", "unused-imports", "import", "@typescript-eslint", "jsx-a11y", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -50,7 +38,7 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react/no-unescaped-entities": "off",
-    "no-console": "warn",
+    // "no-console": "warn",
     "react/prop-types": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
@@ -69,16 +57,7 @@
     "import/order": [
       "error",
       {
-        "groups": [
-          "type",
-          "builtin",
-          "object",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
+        "groups": ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
         "pathGroups": [
           {
             "pattern": "~/**",
