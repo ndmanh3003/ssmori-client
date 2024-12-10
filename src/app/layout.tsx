@@ -6,6 +6,7 @@ import { ConfigProvider, App } from 'antd'
 import './globals.css'
 import 'antd/dist/reset.css'
 import antdConfig from '@/config/antd'
+import Effect from '@/components/Effect'
 
 export const metadata: Metadata = {
   title: 'Sushi Mori 🍣',
@@ -24,7 +25,10 @@ export default function RootLayout({
           <ConfigProvider {...antdConfig}>
             <App>
               <div className='bg-mr-th min-h-[100vh] w-full flex justify-center'>
-                <div className='max-w-[1440px] w-full h-full overflow-hidden px-10'>{children}</div>
+                <div className='fixed w-full h-full z-0'>
+                  <Effect />
+                </div>
+                <div className='max-w-[1440px] w-full h-full overflow-hidden px-10 z-10'>{children}</div>
               </div>
             </App>
           </ConfigProvider>
