@@ -3,36 +3,13 @@ import { Button } from 'antd'
 import { ArrowRightOutlined } from '@ant-design/icons'
 
 import Heading from '@/components/Heading'
-import MenuItem, { IMenuItem } from '@/components/MenuItem'
 import Register from '@/components/form/Register'
-import Header from '@/components/layout/Header'
+import Dish from '@/components/Dish'
 
-const menu: IMenuItem[] = [
-  {
-    name: 'Ocean Tuna',
-    description: 'Fresh and tender with a rich, savory flavor that melts in your mouth, 6 pcs.',
-    price: 300000,
-    image: '1KuVhTi60MggnmfFxbN8IAW9JXQAE7JcW'
-  },
-  {
-    name: 'Salmon and Shrimp Tempura Rolls',
-    description: 'Crispy tempura shrimp paired with creamy salmon and a delicate balance of flavors, 8 pcs.',
-    price: 100000,
-    image: '1w2Kbd0sFkWHDK6OdYBHCvVUpoJPIdYPO'
-  },
-  {
-    name: 'Norwegian Salmon',
-    description: 'Rich, buttery texture with a smooth and slightly sweet taste, 6 pcs.',
-    price: 350000,
-    image: '1n546PGzrnLDU1uKkiTPkqtAcetKpQq5M'
-  }
-]
-
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <Header />
-      <section className='h-[90vh] max-h-[700px] w-full flex items-center justify-between mt-20'>
+    <>
+      <section className='h-[90vh] max-h-[700px] w-full flex items-center justify-between'>
         <div>
           <Heading isBig impact='Japan first choice'>
             Sushi Mori That
@@ -48,9 +25,9 @@ export default function Home() {
       </section>
       <section className='flex flex-col items-center'>
         <Heading impact='Sushi Picker'>Popular Menu</Heading>
-        <div className='grid grid-cols-3 gap-5 w-full mt-10'>
-          {menu.map((item) => (
-            <MenuItem key={item.image} {...item} />
+        <div className='grid grid-cols-5 gap-5 w-full mt-10'>
+          {[1, 2, 3, 4, 5].map((id) => (
+            <Dish key={id.toString() + 'dish'} id={id} />
           ))}
         </div>
       </section>
@@ -81,6 +58,6 @@ export default function Home() {
           </ul>
         </div>
       </section>
-    </div>
+    </>
   )
 }

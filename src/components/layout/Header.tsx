@@ -8,14 +8,18 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/utils/cn'
 
 const nav = [
+  { label: 'Branch', href: '/branch' },
   { label: 'Menu', href: '/menu' },
-  { label: 'Track order', href: '/track-order' },
-  { label: 'Contact us', href: '/contact-us' },
-  { label: 'About us', href: '/about-us' }
+  { label: 'Card Benefits', href: '/card' },
+  { label: 'Register', href: '/reg' }
 ]
 
 export default function Header() {
   const pathname = usePathname()
+
+  if (pathname.startsWith('/internal')) {
+    return <></>
+  }
 
   return (
     <header className='py-3 flex justify-between items-center fixed top-0 max-w-[1440px] w-full px-10 -translate-x-10 bg-mr-th z-50'>
