@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import { Button } from 'antd'
 import { ArrowRightOutlined } from '@ant-design/icons'
+import Link from 'next/link'
 
 import Heading from '@/components/Heading'
 import Register from '@/components/form/Register'
-import Dish from '@/components/Dish'
+import Dish from '@/components/order/Dish'
 
 export default function Page() {
   return (
@@ -25,17 +26,19 @@ export default function Page() {
       </section>
       <section className='flex flex-col items-center'>
         <Heading impact='Sushi Picker'>Popular Menu</Heading>
-        <div className='grid grid-cols-5 gap-5 w-full mt-10'>
-          {[1, 2, 3, 4, 5].map((id) => (
-            <Dish key={id.toString() + 'dish'} id={id} />
-          ))}
-        </div>
+        <Link className='text-black hover:text-black' href='/menu'>
+          <div className='grid grid-cols-5 gap-5 w-full mt-10'>
+            {[1, 2, 3, 4, 5].map((index) => (
+              <Dish key={'dish' + index} id={index} />
+            ))}
+          </div>
+        </Link>
       </section>
       <div className='mt-52 mb-20 flex w-full justify-center relative'>
         <Image alt='people' className='absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2' height={250} src='/hp-quote.png' width={250} />
         <div className='text-2xl font-semibold relative'>
           I don't trust words. <span className='text-mr-rd'>I trust</span> <br />
-          <span className='text-mr-rd'>test of food.</span>
+          <span className='text-mr-rd'>taste of food.</span>
           <span className='font-impact text-[200px] text-mr-rd absolute rotate-180 -top-5 -left-5 -translate-x-3/4 -translate-y-3/4'> " </span>
         </div>
         <Image alt='people' className='ml-20' height={300} src='/hp-pp.svg' width={400} />

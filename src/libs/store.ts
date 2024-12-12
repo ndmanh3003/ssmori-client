@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import dishReducer from './features/dish/dishSlice'
+import orderReducer from './features/order/orderSlice'
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { dish: dishReducer }
+    reducer: { order: orderReducer }
   })
 }
 

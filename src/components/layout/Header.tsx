@@ -6,16 +6,18 @@ import { UserOutlined } from '@ant-design/icons'
 import { usePathname } from 'next/navigation'
 
 import { cn } from '@/utils/cn'
-
-const nav = [
-  { label: 'Branch', href: '/branch' },
-  { label: 'Menu', href: '/menu' },
-  { label: 'Card Benefits', href: '/card' },
-  { label: 'Register', href: '/reg' }
-]
+import { useAppSelector } from '@/hooks/redux'
 
 export default function Header() {
   const pathname = usePathname()
+  const branch = useAppSelector((state) => state.order.branch)
+
+  const nav = [
+    { label: 'Branch', href: '/branch' },
+    { label: 'Menu', href: '/menu/' + (branch ? branch : '') },
+    { label: 'Card Benefits', href: '/card' },
+    { label: 'Register', href: '/reg' }
+  ]
 
   if (pathname.startsWith('/internal')) {
     return <></>

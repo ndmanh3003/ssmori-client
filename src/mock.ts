@@ -1,25 +1,4 @@
-import { IDish } from '@/components/Dish'
-
-interface IRegion {
-  id: number
-  name: string
-  total: number
-  branches: IBranch[]
-}
-
-export interface IBranch {
-  id: number
-  name: string
-  address: string
-  openTime: string
-  closeTime: string
-  phone: number
-  hasMotoPark: boolean
-  hasCarPark: boolean
-  canShip: boolean
-  floorQuantity: number
-  image: string
-}
+import { IRegion, IDish, ICategory } from '@/components'
 
 export const regions: IRegion[] = [
   {
@@ -247,7 +226,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá ngừ đại dương',
     nameEn: 'Ocean Tuna',
-    price: 300,
+    price: 300000,
     image: '1KuVhTi60MggnmfFxbN8IAW9JXQAE7JcW'
   },
   {
@@ -256,7 +235,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cơm cuộn cá hồi, tôm chiên',
     nameEn: 'Salmon and Shrimp Tempura Rolls',
-    price: 100,
+    price: 100000,
     image: '1w2Kbd0sFkWHDK6OdYBHCvVUpoJPIdYPO'
   },
   {
@@ -265,7 +244,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá hồi Na Uy',
     nameEn: 'Norwegian Salmon',
-    price: 350,
+    price: 350000,
     image: '1n546PGzrnLDU1uKkiTPkqtAcetKpQq5M'
   },
   {
@@ -274,7 +253,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cơm cuộn lươn hun khói',
     nameEn: 'Smoked Eel Roll',
-    price: 120,
+    price: 120000,
     image: '1F0BhMf5fLn1Ei-OjJtnZPhcucIS8mXQj'
   },
   {
@@ -283,7 +262,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá hồi, sò điệp',
     nameEn: 'Salmon and Scallops',
-    price: 200,
+    price: 200000,
     image: '15Q_x28Y2yhCDLjE4kUQ9-f_7XTGQoLzm'
   },
   {
@@ -292,16 +271,16 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Bạch tuộc Nhật Bản',
     nameEn: 'Japanese Octopus',
-    price: 300,
+    price: 300000,
     image: '11Yrx-V6-IzvvMYCSAX9n7LGmejhrrUl8'
   },
   {
     id: 7,
     isCombo: false,
-    canShip: true,
+    canShip: false,
     nameVn: 'Tôm chiên bột tempura',
     nameEn: 'Tempura Fried Shrimp',
-    price: 150,
+    price: 150000,
     image: '1a0U3zicMnnF5cIVtY5fd4JF1nd1ucm3i'
   },
   {
@@ -310,7 +289,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Sò đỏ Nhật Bản',
     nameEn: 'Japanese Red Clams',
-    price: 250,
+    price: 250000,
     image: '1C75aomZTHySFyCnrsjTFkzMwGgoX4wkZ'
   },
   {
@@ -319,7 +298,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Maki Cơm cuộn cá hồi',
     nameEn: 'Salmon Maki Roll',
-    price: 150,
+    price: 150000,
     image: '1e1N4ogpmeapYioXaZFtPUnyC9tBa-Icd'
   },
   {
@@ -328,16 +307,16 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Lươn hun khói Nhật Bản',
     nameEn: 'Smoked Japanese Eel',
-    price: 200,
+    price: 200000,
     image: '1BRcW0cAjxBgfqEeiVfw7MVAW1HWB4dDp'
   },
   {
     id: 11,
     isCombo: false,
-    canShip: true,
+    canShip: false,
     nameVn: 'Cá hồi và phô mai chiên giòn',
     nameEn: 'Crispy Fried Salmon and Cheese',
-    price: 150,
+    price: 150000,
     image: '1hNRnKHGkimG_BY3ov-v_YXZBQkJwyGIP'
   },
   {
@@ -346,16 +325,16 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá hồi, trứng cá chuồn',
     nameEn: 'Salmon and Fish Roe',
-    price: 200,
+    price: 200000,
     image: '1cpOriYbrJaReSEFlK5F_hdugVRTFRBzU'
   },
   {
     id: 13,
     isCombo: false,
-    canShip: true,
+    canShip: false,
     nameVn: 'Tôm sú biển thiên nhiên',
     nameEn: 'Natural Wild Sea Prawns',
-    price: 300,
+    price: 300000,
     image: '1zijTnmOqQLiZLv4V-IcP90VOGDMahnQF'
   },
   {
@@ -364,16 +343,16 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá trích Nhật Bản',
     nameEn: 'Japanese Herring',
-    price: 150,
+    price: 150000,
     image: '1Wd51V9oLEhoh6eNRnTWRuvABUnai2laL'
   },
   {
     id: 15,
     isCombo: false,
-    canShip: true,
+    canShip: false,
     nameVn: 'Trứng cá chuồn Nhật Bản',
     nameEn: 'Japanese Fish Roe',
-    price: 400,
+    price: 400000,
     image: '1jxuba7RWfPMfiL8AzO6r6VN2qBbAnX4Z'
   },
   {
@@ -382,7 +361,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá ngừ vây xanh Nhật Bản',
     nameEn: 'Japanese Bluefin Tuna',
-    price: 600,
+    price: 600000,
     image: '1m0TZ9MgerpZYxpjPfaMQkt227j8s4Nzm'
   },
   {
@@ -391,7 +370,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Gan cá sashimi',
     nameEn: 'Sashimi Fish Liver',
-    price: 150,
+    price: 150000,
     image: '1Wj64yQy7e_l4x_WL33Phb_7fJxjJVIpx'
   },
   {
@@ -400,7 +379,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Bạch tuộc trộn',
     nameEn: 'Octopus Salad',
-    price: 120,
+    price: 120000,
     image: '1G-mb8spDyHSy9ky0YJA6-iaZ2MKVi-Ci'
   },
   {
@@ -409,7 +388,7 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cơm cuộn dưa leo',
     nameEn: 'Cucumber Roll',
-    price: 50,
+    price: 50000,
     image: '1RYbrXjF8hyhtZ_3nPyEFqL85mJxeZpcj'
   },
   {
@@ -418,7 +397,56 @@ export const dishes: IDish[] = [
     canShip: true,
     nameVn: 'Cá Saba ngâm giấm',
     nameEn: 'Vinegar-Pickled Saba Fish',
-    price: 120,
+    price: 120000,
     image: '1C6yRBuLPtc17b6GCM-RyK5UAF3qi-sQO'
+  },
+  {
+    id: 21,
+    isCombo: true,
+    canShip: false,
+    nameVn: 'Hải sản thượng hạng',
+    nameEn: 'Seafood Deluxe',
+    price: 1250000,
+    image: '1LYiUuC-_TYW7L7mQ5qURg11ArlfBfHWj',
+    total: 4,
+    dishes: [1, 3, 6, 15]
+  },
+  {
+    id: 22,
+    isCombo: true,
+    canShip: true,
+    nameVn: 'Tiệc cơm cuộn và tempura',
+    nameEn: 'Rolls and Tempura Feast',
+    price: 500000,
+    image: '1o8WHlLSc2gDv3KeOwtKeFLlT19tviuW6',
+    total: 4,
+    dishes: [2, 7, 9, 19]
+  }
+]
+
+export const categories: ICategory[] = [
+  {
+    id: 1,
+    name: 'Seafood',
+    total: 10,
+    dishes: [1, 3, 5, 6, 8, 13, 14, 15, 16, 20]
+  },
+  {
+    id: 2,
+    name: 'Tempura',
+    total: 6,
+    dishes: [2, 4, 7, 9, 11, 19]
+  },
+  {
+    id: 3,
+    name: 'Premium',
+    total: 7,
+    dishes: [1, 3, 6, 13, 15, 16]
+  },
+  {
+    id: 0,
+    name: 'Combo',
+    total: 2,
+    dishes: [21, 22]
   }
 ]
