@@ -15,7 +15,7 @@ export const regions: IRegion[] = [
         phone: 19001523,
         hasMotoPark: false,
         hasCarPark: true,
-        canShip: false,
+        canShip: true,
         floorQuantity: 3,
         image: '1CUdmmAXNWssnP3dP5edcyp_9r4y7eYr1'
       },
@@ -28,7 +28,7 @@ export const regions: IRegion[] = [
         phone: 19001523,
         hasMotoPark: true,
         hasCarPark: true,
-        canShip: true,
+        canShip: false,
         floorQuantity: 2,
         image: '1RRLFxlQ6Hr7sOSp5WblKJYYgeXMR6s78'
       },

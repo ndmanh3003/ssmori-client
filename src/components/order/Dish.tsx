@@ -13,6 +13,7 @@ export default function Dish({ id }: { id: number }) {
   const dish = dishes.find((dish) => dish.id === id)
 
   const quantity = useAppSelector((state) => selectQuantity(state, id))
+  const branchCanShip = useAppSelector((state) => state.order.canShip)
   const dispatch = useAppDispatch()
 
   if (!dish) {
@@ -39,12 +40,12 @@ export default function Dish({ id }: { id: number }) {
       )}
       <div className='rounded-l-2xl py-1 p-2 pr-2 my-2 ml-2 flex justify-between items-center !bg-mr-th'>
         <span className='text-lg font-bold'>{price(dish.price)}</span>
-        <div className={cn('flex items-center space-x-2', dish.canShip ? 'text-mr-nd' : 'text-gray-700')}>
+        <div className={cn('flex items-center space-x-2', dish.canShip ? 'text-mr-nd' : 'text-gray-700', !branchCanShip && 'hidden')}>
           {dish.canShip ? (
             <>
               {quantity > 0 && (
                 <>
-                  <MinusCircleFilled className='!text-xl !cursor-pointer' onClick={() => dispatch(decrement(id))} />
+                  <MinusCircleFilled className='!text-xl !cursor-pointer' onClick={() => dispatch(decrement({ id, price: dish.price }))} />
                   <span>{quantity}</span>
                 </>
               )}

@@ -19,7 +19,7 @@ export default function Page() {
       <div className='w-full max-h-[700px] h-[70vh] mt-10 bg-mr-th rounded-3xl overflow-hidden relative'>
         <Image alt='branch' className='h-auto w-full absolute bottom-0 left-0' height={1000} src={img(info?.image || '1CUdmmAXNWssnP3dP5edcyp_9r4y7eYr1')} width={1000} />
         {info && (
-          <div className='absolute rounded-2xl right-5 bottom-5 flex space-y-5 flex-col'>
+          <div className='absolute rounded-2xl right-5 bottom-5 flex space-y-5 flex-col items-end'>
             <div className='h-20 w-[230px] rounded-2xl bg-white overflow-hidden flex items-center'>
               <Image unoptimized alt='icon' className='h-4/5 w-auto ml-3 mr-2' height={100} src='/icon-elevator.gif' width={100} />
               <div className='text-base w-full'>
@@ -36,9 +36,18 @@ export default function Page() {
                 {info?.hasMotoPark ? 'Moto parking avail' : 'No moto parking'}
               </div>
             </div>
-            <Link href={'menu/' + info?.id}>
-              <Button type='primary'>Explore menu, savor sushi!</Button>
-            </Link>
+            <div className='flex space-x-5'>
+              <Link href={'menu/' + info?.id}>
+                <Button className='!rounded-full' type='primary'>
+                  Explore menu
+                </Button>
+              </Link>
+              <Link href={'booking/' + info?.id}>
+                <Button className='!rounded-full' type='primary'>
+                  Reserve your table
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
         <div className='w-[350px] h-full top-0 left-0 overflow-y-scroll bg-mr-th bg-opacity-90 absolute'>

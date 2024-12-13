@@ -37,8 +37,8 @@ export const orderSlice = createSlice({
 
       state.total += action.payload.price
     },
-    decrement: (state, action: PayloadAction<number>) => {
-      const dish = state.dishes.find((dish) => dish.id === action.payload)
+    decrement: (state, action: PayloadAction<{ id: number; price: number }>) => {
+      const dish = state.dishes.find((dish) => dish.id === action.payload.id)
 
       if (dish) {
         --dish.quantity
@@ -48,7 +48,7 @@ export const orderSlice = createSlice({
         }
       }
 
-      state.total -= action.payload
+      state.total -= action.payload.price
     },
     setBranch: (state, action: PayloadAction<{ id: number; canShip: boolean }>) => {
       state.dishes = []

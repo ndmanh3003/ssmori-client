@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from 'antd'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { ShoppingCartOutlined } from '@ant-design/icons'
 
 import Heading from '@/components/Heading'
 import { categories, regions } from '@/mock'
@@ -15,7 +16,8 @@ import { IBranch } from '@/components'
 
 export default function Page({ params }: { params: Promise<{ branch: string }> }) {
   const [branch, setBranch] = useState<IBranch | null>(null)
-  const total = useAppSelector((state) => state.order.branch)
+  const total = useAppSelector((state) => state.order.total)
+  const branchCanShip = useAppSelector((state) => state.order.canShip)
   const dispatch = useAppDispatch()
   const router = useRouter()
 
@@ -45,7 +47,23 @@ export default function Page({ params }: { params: Promise<{ branch: string }> }
               Book now!
             </Button>
           </Link>
-          <div className='text-white text-lg'>Tổng tiền: {price(Number(total))}</div>
+          <div className='text-white text-lg'>
+            {branchCanShip ? (
+              <>
+                Tổng tiền: {price(Number(total))}
+                <Button className='!rounded-full !px-5 !ml-5' disabled={!total} icon={<ShoppingCartOutlined />} type='primary'>
+                  Giao ngay
+                </Button>
+              </>
+            ) : (
+              <span className='text-base'>
+                This branch has no delivery.{' '}
+                <Link className='text-white underline hover:text-white' href='/branch'>
+                  Choose another one?
+                </Link>
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
