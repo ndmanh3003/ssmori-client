@@ -1,4 +1,4 @@
-import { IRegion, IDish, ICategory } from '@/components'
+import { IRegion, IDish, ICategory, IOrder } from '@/components'
 
 export const regions: IRegion[] = [
   {
@@ -448,5 +448,70 @@ export const categories: ICategory[] = [
     name: 'Combo',
     total: 2,
     dishes: [21, 22]
+  }
+]
+
+export const invoices: IOrder[] = [
+  {
+    id: 1,
+    branch: 'Mori Quận 1 - 123 Lê Lợi Quận 1',
+    phone: '08371973',
+    orderAt: '2021-09-01 12:00',
+    address: '74 Nguyễn Tấn Thái',
+    distanceKm: 12,
+    detail: [
+      {
+        id: 1,
+        nameVn: 'Cá ngừ đại dương',
+        nameEn: 'Ocean Tuna',
+        quantity: 2,
+        sum: 600000
+      },
+      {
+        id: 2,
+        nameVn: 'Cơm cuộn cá hồi, tôm chiên',
+        nameEn: 'Salmon and Shrimp Tempura Rolls',
+        quantity: 3,
+        sum: 300000
+      }
+    ],
+    total: 900000,
+    shipCost: 20000,
+    shipDiscount: 10000,
+    dishDiscount: 10000,
+    totalPayment: 890000,
+    type: 'O',
+    status: 'completed'
+  },
+  {
+    id: 2,
+    phone: '08371973',
+    branch: 'Mori Quận 1 - 123 Lê Lợi Quận 1',
+    address: '74 Nguyễn Văn B',
+    distanceKm: 2,
+    orderAt: '2021-09-01 12:00',
+    detail: [
+      {
+        id: 1,
+        nameVn: 'Cá ngừ đại dương',
+        nameEn: 'Ocean Tuna',
+        quantity: 3,
+        sum: 900000
+      },
+      {
+        id: 2,
+        nameVn: 'Cơm cuộn cá hồi, tôm chiên',
+        nameEn: 'Salmon and Shrimp Tempura Rolls',
+        quantity: 1,
+        sum: 100000
+      }
+    ],
+    total: 300000,
+    shipCost: 20000,
+    shipDiscount: 10000,
+    dishDiscount: 10000,
+    totalPayment: 800000,
+    type: 'W',
+    status: 'cancel'
   }
 ]

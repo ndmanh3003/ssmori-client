@@ -10,9 +10,6 @@ interface IDishState {
 interface IOrderState {
   dishes: IDishState[]
   total: number
-  id?: number
-  phone?: string
-  address?: string
   branch?: number
   canShip?: boolean
 }

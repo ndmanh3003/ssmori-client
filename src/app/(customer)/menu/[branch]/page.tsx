@@ -38,6 +38,14 @@ export default function Page({ params }: { params: Promise<{ branch: string }> }
     fetchParams()
   }, [params])
 
+  const confirmedOrder = () => {
+    // create order and receive order number
+    // then redirect to order page
+    const id = 1
+
+    router.push('/order-detail/' + id)
+  }
+
   return (
     <div className='mb-32'>
       <div className='fixed z-50 space-x-5 bg-mr-rd left-0 bottom-0 py-2 w-full h-fit overflow-hidden flex justify-center'>
@@ -50,9 +58,9 @@ export default function Page({ params }: { params: Promise<{ branch: string }> }
           <div className='text-white text-lg'>
             {branchCanShip ? (
               <>
-                Tổng tiền: {price(Number(total))}
-                <Button className='!rounded-full !px-5 !ml-5' disabled={!total} icon={<ShoppingCartOutlined />} type='primary'>
-                  Giao ngay
+                Total: {price(Number(total))}
+                <Button className='!rounded-full !px-5 !ml-5' disabled={!total} icon={<ShoppingCartOutlined />} type='primary' onClick={confirmedOrder}>
+                  Ship now
                 </Button>
               </>
             ) : (

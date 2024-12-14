@@ -17,7 +17,7 @@ export default function Booking({ params }: { params: Promise<{ branch: string }
     async function fetchParams() {
       const resolvedParams = await params
 
-      if (resolvedParams) {
+      if (resolvedParams && resolvedParams.branch) {
         form.setFieldsValue({ branchId: Number(resolvedParams.branch) })
       }
     }

@@ -37,3 +37,29 @@ export interface ICategory {
   total: number
   dishes: number[]
 }
+
+export interface IOrder {
+  id: number
+  branch: string
+  orderAt: string
+  total: number
+  shipCost: number
+  shipDiscount: number
+  dishDiscount: number
+  totalPayment: number
+
+  type: 'O' | 'W' | 'R'
+  status: 'ordering' | 'completed' | 'submited' | 'cancel' | 'in-progress' | 'ready' | 'paid' | 'waiting'
+
+  phone?: string
+  address?: string
+  distanceKm?: number
+
+  detail: {
+    id: number
+    nameVn: string
+    nameEn: string
+    quantity: number
+    sum: number
+  }[]
+}
