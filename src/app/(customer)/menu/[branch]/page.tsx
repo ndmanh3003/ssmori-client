@@ -42,7 +42,7 @@ export default function Page({ params }: { params: Promise<{ branch: string }> }
     <div className='mb-32'>
       <div className='fixed z-50 space-x-5 bg-mr-rd left-0 bottom-0 py-2 w-full h-fit overflow-hidden flex justify-center'>
         <div className='w-full flex justify-between items-center max-w-[1440px] px-10'>
-          <Link href='/'>
+          <Link href={'/booking/' + branch?.id}>
             <Button ghost className='!rounded-full !px-5 !text-white !border-white hover:!text-white hover:!border-white' type='primary'>
               Book now!
             </Button>
@@ -72,7 +72,7 @@ export default function Page({ params }: { params: Promise<{ branch: string }> }
         <Heading>
           Menu <span className='font-sans text-xl'>{branch?.name}</span>
         </Heading>
-        <div className='text-base mt-2 italic'>
+        <div className='text-base mt-2'>
           The menu varies by branch. <br />
           <Link className='text-mr-rd underline hover:text-mr-rd' href='/branch'>
             Choose another one?
