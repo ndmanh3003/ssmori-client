@@ -65,34 +65,8 @@ input[type='number'] {
 
 /* * ANTD: Select dropdown */
 .ant-select-selector {
-  padding: 4px 12px !important;
   border-radius: 12px !important;
-  height: fit-content !important;
   background-color: transparent !important;
-}
-
-.ant-select-single {
-  height: auto !important;
-}
-
-.ant-select-selection-search {
-  padding: 6px 8px !important;
-}
-
-.ant-select-selection-search-input {
-  font-size: 18px !important;
-}
-
-.ant-select-selection-placeholder {
-  font-size: 18px !important;
-}
-
-.ant-select-selection-item {
-  font-size: 18px !important;
-}
-
-.ant-select-item-option {
-  font-size: 16px !important;
 }
 
 /* * ANTD MESSAGE */

@@ -1,7 +1,7 @@
 import { Select, SelectProps } from 'antd'
 
 export interface IOption {
-  value: string
+  value: string | number
   label: string
 }
 
@@ -16,12 +16,12 @@ export default function SelectC(props: ISelectC) {
     <Select
       dropdownAlign={{ offset: [0, 10] }}
       dropdownStyle={{
-        backgroundColor: '#FFF7EB'
+        backgroundColor: '#ffffff'
       }}
       {...rest}
     >
       {options.map((item, index) => (
-        <Select.Option key={index + item.value} value={item.value}>
+        <Select.Option key={index + String(item.value)} value={item.value}>
           {item.label}
         </Select.Option>
       ))}

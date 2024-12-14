@@ -40,7 +40,7 @@ export default function Register() {
   }
 
   return (
-    <Form className='!max-w-[600px] !mt-10' form={form} layout='vertical' name='register' onFinish={onFinish}>
+    <Form className='!max-w-[600px] !mt-10' form={form} layout='vertical' name='register' size='large' onFinish={onFinish}>
       <Form.Item name='name' rules={nameRules}>
         <InputC placeholder='Full Name' />
       </Form.Item>

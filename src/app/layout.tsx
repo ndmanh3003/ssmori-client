@@ -17,9 +17,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children
+  children,
+  overlay
 }: Readonly<{
   children: React.ReactNode
+  overlay: React.ReactNode
 }>) {
   return (
     <html lang='en'>
@@ -34,7 +36,10 @@ export default function RootLayout({
                   </div>
                   <div className='max-w-[1440px] w-full h-full overflow-hidden px-10 z-10'>
                     <Header />
-                    <div className='mt-32'>{children}</div>
+                    <div className='mt-32'>
+                      {children}
+                      {overlay}
+                    </div>
                   </div>
                 </div>
               </App>

@@ -10,7 +10,10 @@ const antdConfig: ConfigProviderProps = {
     },
     components: {
       Form: {
-        labelFontSize: 20
+        labelFontSize: 18
+      },
+      Modal: {
+        titleFontSize: 20
       }
     }
   }

@@ -5,5 +5,5 @@ import { cn } from '@/utils/cn'
 export default function InputC(props: InputProps) {
   const { className, ...rest } = props
 
-  return <Input {...rest} className={cn('!bg-transparent !p-2 !px-3 !text-lg !rounded-xl', className)} />
+  return <Input {...rest} className={cn('!bg-transparent !rounded-xl', className)} />
 }
