@@ -8,6 +8,7 @@ import price from '@/utils/price'
 import { IOrder } from '@/components'
 import { invoices } from '@/mock'
 import Status from '@/components/order/Status'
+import UpdateInvoiceOnline from '@/components/overlay/UpdateInvoiceOnline'
 
 export default function OrderDetail({ params }: { params: Promise<{ id: string }> }) {
   const [invoice, setInvoice] = useState<IOrder | null>(null)
@@ -49,17 +50,18 @@ export default function OrderDetail({ params }: { params: Promise<{ id: string }
             </>
           )}
         </div>
+        {invoice.type === 'O' && invoice.status === 'completed' && <UpdateInvoiceOnline />}
 
         <div className='text-xl font-semibold my-2 mt-5'>Detail</div>
         <div className='text-base'>
-          <div className='grid grid-cols-[auto_1fr] mb-2'>
-            <div>Quantity</div>
-            <div className='text-right'>Sum</div>
+          <div className='grid grid-cols-[auto_1fr] mb-2 font-bold'>
+            <div>QUANTITY</div>
+            <div className='text-right'>SUM</div>
           </div>
           {invoice.detail.map((item) => {
             return (
               <div key={'dish' + item.id} className='grid grid-cols-[auto_1fr] mb-2'>
-                <div className='col-span-2 text-lg font-medium line-clamp-1'>{item.nameEn}</div>
+                <div className='col-span-2 font-semibold line-clamp-1'>{item.nameEn}</div>
                 <div>{item.quantity}</div>
                 <div className='text-right'>{price(item.sum)}</div>
               </div>
@@ -81,7 +83,7 @@ export default function OrderDetail({ params }: { params: Promise<{ id: string }
             <div className='text-right'>{price(Number(invoice.totalPayment))}</div>
           </div>
         </div>
-        {invoice.status === 'completed' && (
+        {invoice.type === 'O' && invoice.status === 'completed' && (
           <Button className='!mt-5 !text-base' type='primary'>
             Confim delious sushi 🍣
           </Button>
