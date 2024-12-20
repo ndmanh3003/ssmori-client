@@ -6,7 +6,8 @@ const antdConfig: ConfigProviderProps = {
     token: {
       colorPrimary: '#DF4601',
       fontFamily: 'Manrope',
-      borderRadius: 12
+      borderRadius: 12,
+      colorBgContainer: '#FFF7EB'
     },
     components: {
       Form: {
@@ -14,6 +15,14 @@ const antdConfig: ConfigProviderProps = {
       },
       Modal: {
         titleFontSize: 20
+      },
+      Table: {
+        borderColor: '#DB7A3F',
+        cellFontSize: 16,
+        footerBg: 'transparent',
+        headerBg: '#DB7A3F',
+        headerBorderRadius: 20,
+        headerColor: 'white'
       }
     }
   }

@@ -49,7 +49,7 @@ export interface IOrder {
   totalPayment: number
 
   type: 'O' | 'W' | 'R'
-  status: 'ordering' | 'completed' | 'submited' | 'cancel' | 'in-progress' | 'ready' | 'paid' | 'waiting'
+  status: 'draft' | 'submitted' | 'canceled' | 'issued' | 'paid'
 
   phone?: string
   address?: string
@@ -62,4 +62,10 @@ export interface IOrder {
     quantity: number
     sum: number
   }[]
+}
+
+export enum TypeOrder {
+  O = 'Online',
+  W = 'Walk-in',
+  R = 'Reservation'
 }

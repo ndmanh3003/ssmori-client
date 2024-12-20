@@ -16,7 +16,7 @@ export default function Header() {
     { label: 'Branch', href: '/branch' },
     { label: 'Menu', href: '/menu/' + (branch ? branch : '') },
     { label: 'Card Benefits', href: '/card' },
-    { label: 'Register', href: '/reg' }
+    { label: 'Register', href: '#register-section' }
   ]
 
   if (pathname.startsWith('/internal')) {
@@ -25,7 +25,10 @@ export default function Header() {
 
   return (
     <header className='py-3 flex justify-between items-center fixed top-0 max-w-[1440px] w-full px-10 -translate-x-10 bg-mr-th z-50'>
-      <Image alt='logo' height={200} src='/icon-text.svg' width={200} />
+      <Link href='/'>
+        <Image alt='logo' height={200} src='/icon-text.svg' width={200} />
+      </Link>
+
       <nav>
         {nav.map(({ href, label }) => (
           <Link

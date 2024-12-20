@@ -481,7 +481,7 @@ export const invoices: IOrder[] = [
     dishDiscount: 10000,
     totalPayment: 890000,
     type: 'O',
-    status: 'completed'
+    status: 'paid'
   },
   {
     id: 2,
@@ -512,6 +512,6 @@ export const invoices: IOrder[] = [
     dishDiscount: 10000,
     totalPayment: 800000,
     type: 'W',
-    status: 'cancel'
+    status: 'draft'
   }
 ]

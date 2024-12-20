@@ -41,7 +41,7 @@ export default function Page() {
           <span className='text-mr-rd'>taste of food.</span>
           <span className='font-impact text-[200px] text-mr-rd absolute rotate-180 -top-5 -left-5 -translate-x-3/4 -translate-y-3/4'> " </span>
         </div>
-        <Image alt='people' className='ml-20' height={300} src='/hp-pp.svg' width={400} />
+        <Image alt='people' className='ml-20' height={300} id='register-section' src='/hp-pp.svg' width={400} />
       </div>
       <section className='flex space-x-10 items-center mt-32 pr-20'>
         <div className='w-full'>
