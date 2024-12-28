@@ -16,7 +16,7 @@ export default function Header() {
     { label: 'Branch', href: '/branch' },
     { label: 'Menu', href: '/menu/' + (branch ? branch : '') },
     { label: 'Card Benefits', href: '/card' },
-    { label: 'Register', href: '#register-section' }
+    { label: 'Register', href: '/#register-section' }
   ]
 
   if (pathname.startsWith('/internal')) {

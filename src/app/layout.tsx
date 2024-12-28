@@ -10,10 +10,11 @@ import 'antd/dist/reset.css'
 import antdConfig from '@/config/antd'
 import Effect from '@/components/Effect'
 import Header from '@/components/layout/Header'
+import Process from '@/components/layout/Process'
 
 export const metadata: Metadata = {
   title: 'Sushi Mori 🍣',
-  description: 'Sushi Mori với thực đơn đa dạng món ăn và luôn đảm bảo độ tươi ngon, mang đến trải nghiệm trọn vẹn dành cho quý thực khách.'
+  description: 'Sushi Mori offers a diverse menu with consistently fresh dishes, providing a complete and delightful experience for valued guests.'
 }
 
 export default function RootLayout({
@@ -39,6 +40,7 @@ export default function RootLayout({
                     <div className='mt-32'>
                       {children}
                       {overlay}
+                      <Process />
                     </div>
                   </div>
                 </div>

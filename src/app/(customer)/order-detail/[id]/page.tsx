@@ -50,7 +50,7 @@ export default function OrderDetail({ params }: { params: Promise<{ id: string }
             </>
           )}
         </div>
-        {invoice.type === 'O' && invoice.status === 'completed' && <UpdateInvoiceOnline />}
+        {invoice.type === 'O' && invoice.status === 'draft' && <UpdateInvoiceOnline />}
 
         <div className='text-xl font-semibold my-2 mt-5'>Detail</div>
         <div className='text-base'>
@@ -83,7 +83,7 @@ export default function OrderDetail({ params }: { params: Promise<{ id: string }
             <div className='text-right'>{price(Number(invoice.totalPayment))}</div>
           </div>
         </div>
-        {invoice.type === 'O' && invoice.status === 'completed' && (
+        {invoice.type === 'O' && invoice.status === 'draft' && (
           <Button className='!mt-5 !text-base' type='primary'>
             Confim delious sushi 🍣
           </Button>
