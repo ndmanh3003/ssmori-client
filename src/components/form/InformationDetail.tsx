@@ -1,17 +1,23 @@
 'use client'
-import { Button, Form } from 'antd'
-import { useState } from 'react'
+import { Button, Form, App } from 'antd'
+import { useEffect, useState } from 'react'
 
 import InputC from '@/components/form/InputC'
 import { emailRules, nameRules, requireRule } from '@/components/form/const'
 import SelectC from '@/components/form/SelectC'
 import { genderOptions } from '@/components/form/Register'
+import { customerApi, ICustomer } from '@/service/api/customer'
 
-export default function InformationDetail() {
+export default function InformationDetail({ customer }: { customer: ICustomer }) {
   const [form] = Form.useForm()
+  const { message } = App.useApp()
   const [changedValues, setChangedValues] = useState<{ [key: string]: unknown } | null>(null)
 
-  const onFinish = () => {
+  useEffect(() => {
+    form.setFieldsValue(customer)
+  }, [customer, form])
+
+  const onFinish = async () => {
     const formData = Object.keys(changedValues || {}).reduce((acc: { [key: string]: unknown }, key: string) => {
       if (changedValues && changedValues[key]) {
         acc[key] = changedValues[key]
@@ -20,7 +26,8 @@ export default function InformationDetail() {
       return acc
     }, {})
 
-    console.log('Changed fields data:', formData)
+    await customerApi.updateCustomer(formData as Pick<ICustomer, 'name' | 'email' | 'gender'>)
+    message.success('Update successfully')
     setChangedValues(null)
   }
 
@@ -32,7 +39,14 @@ export default function InformationDetail() {
   }
 
   return (
-    <Form form={form} layout='vertical' name='register' size='large' onFinish={onFinish} onValuesChange={handleValuesChange}>
+    <Form
+      form={form}
+      layout='vertical'
+      name='register'
+      size='large'
+      onFinish={onFinish}
+      onValuesChange={handleValuesChange}
+    >
       <Form.Item name='name' rules={nameRules}>
         <InputC placeholder='Full Name' />
       </Form.Item>

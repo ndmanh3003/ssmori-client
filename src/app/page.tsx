@@ -17,8 +17,16 @@ export default function Page() {
             <br />
             You <span className='text-mr-nd'>Will Love</span>
           </Heading>
-          <p className='my-5 text-lg'>The sushi at Sushi Mori is made from ingredients sourced directly from the seas of Japan, then transported to Vietnam by air.</p>
-          <Button className='!text-lg !rounded-full !mt-5 !py-6 !px-12' icon={<ArrowRightOutlined />} iconPosition='end' type='primary'>
+          <p className='my-5 text-lg'>
+            The sushi at Sushi Mori is made from ingredients sourced directly from the seas of Japan, then transported
+            to Vietnam by air.
+          </p>
+          <Button
+            className='!text-lg !rounded-full !mt-5 !py-6 !px-12'
+            icon={<ArrowRightOutlined />}
+            iconPosition='end'
+            type='primary'
+          >
             View Menu
           </Button>
         </div>
@@ -35,11 +43,20 @@ export default function Page() {
         </Link>
       </section>
       <div className='mt-52 mb-20 flex w-full justify-center relative'>
-        <Image alt='people' className='absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2' height={250} src='/hp-quote.png' width={250} />
+        <Image
+          alt='people'
+          className='absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2'
+          height={250}
+          src='/hp-quote.png'
+          width={250}
+        />
         <div className='text-2xl font-semibold relative'>
           I don't trust words. <span className='text-mr-rd'>I trust</span> <br />
           <span className='text-mr-rd'>taste of food.</span>
-          <span className='font-impact text-[200px] text-mr-rd absolute rotate-180 -top-5 -left-5 -translate-x-3/4 -translate-y-3/4'> " </span>
+          <span className='font-impact text-[200px] text-mr-rd absolute rotate-180 -top-5 -left-5 -translate-x-3/4 -translate-y-3/4'>
+            {' '}
+            "{' '}
+          </span>
         </div>
         <Image alt='people' className='ml-20' height={300} id='register-section' src='/hp-pp.svg' width={400} />
       </div>

@@ -3,14 +3,23 @@ import { Button } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
 import { UserOutlined } from '@ant-design/icons'
+import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
-import { cn } from '@/utils/cn'
-import { useAppSelector } from '@/hooks/redux'
+import cn from '@/utils/cn'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { authApi } from '@/service/api/auth'
+import { setAuth } from '@/libs/features/auth/authSlide'
 
 export default function Header() {
   const pathname = usePathname()
   const branch = useAppSelector((state) => state.order.branch)
+  const isLogined = useAppSelector((state) => state.auth.id)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    authApi.getme().then((res) => dispatch(setAuth(res.data)))
+  }, [])
 
   const nav = [
     { label: 'Branch', href: '/branch' },
@@ -42,9 +51,11 @@ export default function Header() {
           </Link>
         ))}
       </nav>
-      <Button className='!rounded-full !bg-transparent !font-medium !px-7' icon={<UserOutlined />}>
-        Login
-      </Button>
+      <Link href={isLogined ? '/info' : '/login'}>
+        <Button className='!rounded-full !bg-transparent !font-medium !px-7' icon={<UserOutlined />}>
+          {isLogined ? 'Home' : 'Login'}
+        </Button>
+      </Link>
     </header>
   )
 }

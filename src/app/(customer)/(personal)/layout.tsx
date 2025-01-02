@@ -22,9 +22,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Heading>
-        {header}{' '}
+        {header}
         <Dropdown menu={{ items, onClick }}>
-          <button key='link' style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }} onClick={(e) => e.preventDefault()}>
+          <button
+            key='link'
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+            onClick={(e) => e.preventDefault()}
+          >
             <DownOutlined className='!text-base' />
           </button>
         </Dropdown>

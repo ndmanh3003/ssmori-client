@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import orderReducer from './features/order/orderSlice'
+import authReducer from './features/auth/authSlide'
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { order: orderReducer }
+    reducer: { order: orderReducer, auth: authReducer }
   })
 }
 

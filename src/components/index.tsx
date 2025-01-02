@@ -63,9 +63,3 @@ export interface IOrder {
     sum: number
   }[]
 }
-
-export enum TypeOrder {
-  O = 'Online',
-  W = 'Walk-in',
-  R = 'Reservation'
-}

@@ -2,15 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { RootState } from '@/libs/store'
 
-interface IDishState {
+export interface IDishState {
   id: number
   quantity: number
 }
 
-interface IOrderState {
+export interface IOrderState {
+  phone?: string
+  address?: string
+  branch?: number
   dishes: IDishState[]
   total: number
-  branch?: number
   canShip?: boolean
 }
 
@@ -52,11 +54,19 @@ export const orderSlice = createSlice({
       state.total = 0
       state.branch = action.payload.id
       state.canShip = action.payload.canShip
+    },
+    setInfo: (state, action: PayloadAction<{ phone: string; address: string }>) => {
+      state.phone = action.payload.phone
+      state.address = action.payload.address
+    },
+    clear: (state) => {
+      state.dishes = []
+      state.total = 0
     }
   }
 })
 
-export const { increment, decrement, setBranch } = orderSlice.actions
+export const { increment, decrement, setBranch, setInfo, clear } = orderSlice.actions
 
 export const selectQuantity = (state: RootState, id: number) => {
   const dish = state.order.dishes.find((dish) => dish.id === id)

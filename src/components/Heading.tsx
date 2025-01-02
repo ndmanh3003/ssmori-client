@@ -1,6 +1,10 @@
-import { cn } from '@/utils/cn'
+import cn from '@/utils/cn'
 
-export default function Heading({ impact, children, isBig }: Readonly<{ children: React.ReactNode; impact?: string; isBig?: boolean }>) {
+export default function Heading({
+  impact,
+  children,
+  isBig
+}: Readonly<{ children: React.ReactNode; impact?: string; isBig?: boolean }>) {
   return (
     <>
       <div

@@ -12,7 +12,7 @@ export default function ModalC({ children, ...props }: IModalC) {
   const handleOnChange = () => router.back()
 
   return (
-    <Modal open onCancel={handleOnChange} {...props}>
+    <Modal open footer={null} onCancel={handleOnChange} {...props}>
       <div className='my-4'>{children}</div>
     </Modal>
   )

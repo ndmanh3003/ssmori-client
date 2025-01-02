@@ -1,18 +1,14 @@
 import { Tag } from 'antd'
 
-import { IOrder } from '..'
-
-type IStatus = Pick<IOrder, 'status'>
+import { IOrderDetailRes } from '@/service/api/order'
 
 enum StatusEnum {
-  draft = 'cyan',
   submitted = 'blue',
   canceled = 'red',
-  issued = 'green',
   paid = 'magenta'
 }
 
-export default function Status({ status }: IStatus) {
+export default function Status({ status }: Pick<IOrderDetailRes, 'status'>) {
   return (
     <Tag bordered={false} className='!font-medium !mx-2' color={StatusEnum[status]}>
       {status}

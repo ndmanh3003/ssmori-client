@@ -1,47 +1,50 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Table, TableProps } from 'antd'
+import { App, Table, TableProps } from 'antd'
 
 import Status from '../order/Status'
-import { IOrder, TypeOrder } from '..'
 
-import { invoices } from '@/mock'
 import price from '@/utils/price'
-import { cn } from '@/utils/cn'
-
-type IInvoiceTable = Pick<IOrder, 'id' | 'branch' | 'orderAt' | 'totalPayment' | 'status' | 'type'>
+import cn from '@/utils/cn'
+import { IOrderRes, orderApi, TypeOrder } from '@/service/api/order'
+import getTime from '@/utils/time'
 
 const time = [
-  {
-    label: 'Last 3 months',
-    value: 3
-  },
-  {
-    label: 'Last 6 months',
-    value: 6
-  },
-  {
-    label: 'Last 12 months',
-    value: 12
-  }
+  { label: 'Last 3 months', value: 3 },
+  { label: 'Last 6 months', value: 6 },
+  { label: 'Last 12 months', value: 12 }
 ]
 
 export default function InvoiceTable() {
   const [curTime, setCurTime] = React.useState<3 | 6 | 12>(3)
+  const { message } = App.useApp()
   const router = useRouter()
+  const [invoices, setInvoices] = React.useState<IOrderRes[]>([])
+
+  useEffect(() => {
+    orderApi.getHistory({ from: '2021-01-01', page: 1, limit: 10 }).then((res) => {
+      setInvoices(res.data)
+    })
+  }, [])
 
   const filterDropdown = () => (
     <div className='p-2 flex flex-col space-y-1'>
       {time.map(({ label, value }) => (
-        <button key={value} className={cn('!px-2 !py-1 !rounded-lg  !text-black !hover:!bg-mr-nd', { '!bg-mr-rd !text-white': curTime === value })} onClick={() => setCurTime(value as 3 | 6 | 12)}>
+        <button
+          key={value}
+          className={cn('!px-2 !py-1 !rounded-lg  !text-black !hover:!bg-mr-nd', {
+            '!bg-mr-rd !text-white': curTime === value
+          })}
+          onClick={() => setCurTime(value as 3 | 6 | 12)}
+        >
           {label}
         </button>
       ))}
     </div>
   )
 
-  const columns: TableProps<IInvoiceTable>['columns'] = [
+  const columns: TableProps<IOrderRes>['columns'] = [
     {
       title: 'ID',
       align: 'center',
@@ -50,7 +53,7 @@ export default function InvoiceTable() {
     },
     {
       title: 'Branch',
-      dataIndex: 'branch',
+      dataIndex: 'branchInfo',
       key: 'branch'
     },
     {
@@ -58,7 +61,8 @@ export default function InvoiceTable() {
       dataIndex: 'orderAt',
       align: 'center',
       key: 'orderAt',
-      filterDropdown
+      filterDropdown,
+      render: (orderAt: string) => getTime(orderAt)
     },
     {
       title: 'Payment',
@@ -73,7 +77,7 @@ export default function InvoiceTable() {
       align: 'center',
       key: 'status',
       render: (status: string) => {
-        return <Status status={status as Pick<IOrder, 'status'>['status']} />
+        return <Status status={status as IOrderRes['status']} />
       }
     },
     {
@@ -86,7 +90,7 @@ export default function InvoiceTable() {
   ]
 
   return (
-    <Table<IInvoiceTable>
+    <Table<IOrderRes>
       className='!text-xl'
       columns={columns}
       dataSource={invoices.map((invoice) => ({ ...invoice, key: invoice.id }))}
@@ -97,7 +101,13 @@ export default function InvoiceTable() {
         onMouseLeave: () => {
           document.body.style.cursor = 'default'
         },
-        onClick: () => router.push('/order-detail/' + record.id)
+        onClick: () => {
+          if (record.totalPayment) {
+            router.push(`/order-detail/${record.id}`)
+          } else {
+            message.info('This order has no detail')
+          }
+        }
       })}
     />
   )

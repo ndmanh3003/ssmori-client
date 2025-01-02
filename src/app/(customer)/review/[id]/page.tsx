@@ -37,7 +37,12 @@ export default function App({ params }: { params: Promise<{ id: string }> }) {
         </div>
 
         <Form.Item label='Comment' name='comment'>
-          <Input.TextArea showCount autoSize={{ minRows: 3, maxRows: 6 }} className='!bg-transparent !rounded-xl' maxLength={200} />
+          <Input.TextArea
+            showCount
+            autoSize={{ minRows: 3, maxRows: 6 }}
+            className='!bg-transparent !rounded-xl'
+            maxLength={200}
+          />
         </Form.Item>
         <Button htmlType='submit' type='primary'>
           Submit

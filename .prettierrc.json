@@ -9,6 +9,6 @@
   "tabWidth": 2,
   "trailingComma": "none",
   "useTabs": false,
-  "printWidth": 200,
+  "printWidth": 120,
   "semi": false
 }
